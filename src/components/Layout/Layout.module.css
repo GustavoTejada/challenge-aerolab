@@ -1,0 +1,82 @@
+.container {
+    padding: 24px 0px;
+    height: 100vh;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+
+.logo {
+    display: inline;
+    width: 40px;
+    margin-left: 10px;
+}
+
+.userData {
+    font-size: 20px;
+    display: inline;
+    float: left;
+    margin: 5px 4px;
+}
+
+.userIcon {
+    display: inline;
+    float: left;
+    margin-top: 2px;
+}
+
+.userName {
+    float: right;
+    margin: 0px 8px;
+}
+
+.userPoints {
+    display: inline;
+    float: right;
+    background-color: var(--background-color-light);
+    padding: 5px 15px;
+    border-radius: 30px;
+    margin-right: 10px;
+}
+
+.points {
+    display: inline;
+    float: left;
+    margin: 0px 3px;
+    font-size: 18px;
+}
+
+.userPoints img {
+    display: inline;
+    float: right;
+    width: 30px;
+}
+
+.footer {
+    margin-top: 32px;
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+.themeSwitcher {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+
+    color: var(--text-color-secondary);
+    margin-left: 4px;
+
+    display: inline;
+    justify-content: center;
+    align-items: center;
+}
