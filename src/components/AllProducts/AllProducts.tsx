@@ -9,6 +9,18 @@ import productService from '../../services/productService';
 import userService from '../../services/userService';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
+export interface Product {
+    _id:      string;
+    name:     string;
+    cost:     number;
+    category: string;
+    img:      Img;
+}
+
+export interface Img {
+    url:   string;
+    hdUrl: string;
+}
 
 function Alert(props: AlertProps) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
