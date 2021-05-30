@@ -17,7 +17,7 @@ function Alert(props: AlertProps) {
 }
 
 
-const orderBy = (products, value, direction) => {
+const orderBy = (products: any, value: any, direction: string) => {
     if (direction === "asc") {
         return [...products].sort((a, b) => (a[value] > b[value] ? 1 : -1));
     }
@@ -29,7 +29,7 @@ const orderBy = (products, value, direction) => {
     return products;
 };
 
-const SortArrow = ({ direction }) => {
+const SortArrow = (direction : any) => {
     if (!direction) {
         return <></>;
     }
@@ -59,10 +59,10 @@ const UserConfig = () => {
     });
 
     useEffect(() => {
-        setUser(JSON.parse(localStorage.getItem("user")));
+        setUser(JSON.parse(localStorage.getItem("user") || '{}'));
     }, []);
 
-    const [direction, setDirection] = useState();
+    const [direction, setDirection] = useState('');
     const [value, setValue] = useState();
 
     const orderedProducts = orderBy(user.redeemHistory, value, direction);
@@ -73,11 +73,11 @@ const UserConfig = () => {
         } else if (direction === "desc") {
             setDirection("asc");
         } else {
-            setDirection(null);
+            setDirection('');
         }
     };
 
-    const setValueAndDirection = (value) => {
+    const setValueAndDirection = (value : any) => {
         switchDirection();
         setValue(value);
     };
@@ -155,7 +155,7 @@ const UserConfig = () => {
                     </button>
                 </div>
                 <div>
-                    {orderedProducts.map((product) => (
+                    {orderedProducts.map((product: any) => (
                         <div className={styles.row}>
                             <div className={styles.flex4}>{product.name}</div>
                             <div className={styles.flex4}>{product.cost}</div>

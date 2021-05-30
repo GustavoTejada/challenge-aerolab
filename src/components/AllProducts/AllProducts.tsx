@@ -39,7 +39,7 @@ const orderBy = (products: any, value: any, direction: any) => {
 }
 
 
-const AllProducts = ({ products }) => {
+const AllProducts = ({ products = [] }) => {
     const [value, setValue] = useState();
     const [direction, setDirection] = useState();
 
@@ -52,7 +52,7 @@ const AllProducts = ({ products }) => {
 
 
     useEffect(() => {
-        setUser(JSON.parse(localStorage.getItem("user")));
+        setUser(JSON.parse(localStorage.getItem("user") || '{}'));
     }, []);
 
     const [open, setOpen] = useState({

@@ -20,11 +20,11 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children, title }) => {
     useEffect(() => {
         document.documentElement.setAttribute(
             "data-theme",
-            localStorage.getItem("theme")
+            localStorage.getItem("theme") || '{}'
         );
 
-        setTheme(localStorage.getItem("theme"));
-        setUser(JSON.parse(localStorage.getItem("user")));
+        setTheme(localStorage.getItem("theme") || '{}');
+        setUser(JSON.parse(localStorage.getItem("user") || '{}'));
     }, []);
 
     const switchTheme = () => {
@@ -35,7 +35,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children, title }) => {
         }
     };
 
-    const saveTheme = (theme) => {
+    const saveTheme = (theme : any) => {
         setTheme(theme);
         localStorage.setItem("theme", theme);
         document.documentElement.setAttribute("data-theme", theme);
