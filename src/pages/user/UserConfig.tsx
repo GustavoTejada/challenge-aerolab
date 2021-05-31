@@ -6,10 +6,10 @@ import { Container } from '@material-ui/core';
 import Layout from '../../components/Layout/Layout';
 import { KeyboardArrowDownRounded } from "@material-ui/icons";
 import { KeyboardArrowUpRounded } from "@material-ui/icons";
-import productService from '../../services/productService';
 import userService from '../../services/userService';
 import Router from 'next/router';
 import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 
 function Alert(props: AlertProps) {
@@ -49,21 +49,36 @@ const SortArrow = (direction : any) => {
     }
 };
 
+interface User {
+    id:            string;
+    name:          string;
+    points:        number;
+    createDate:    string;
+    redeemHistory: [] ;
+}
+
+const userInfo: User = {
+    id: '',
+    name: '',
+    points: 0,
+    createDate: '',
+    redeemHistory: []
+}
+
+
 
 const UserConfig = () => {
 
-    const [user, setUser] = useState({
-        name: '',
-        points: 0,
-        redeemHistory: []
-    });
-
-    useEffect(() => {
-        setUser(JSON.parse(localStorage.getItem("user") || '{}'));
-    }, []);
-
     const [direction, setDirection] = useState('none');
     const [value, setValue] = useState();
+
+    const [user, setUser] = useState(userInfo);
+
+    useEffect(() => {
+        if (localStorage.getItem("user")) {
+            setUser(JSON.parse(localStorage.getItem("user") || '{}'));
+        }
+    }, [])
 
     const orderedProducts = orderBy(user.redeemHistory, value, direction);
 
@@ -157,13 +172,15 @@ const UserConfig = () => {
                     </button>
                 </div>
                 <div>
-                    {orderedProducts.map((product: any, index: any) => (
+                    {user.redeemHistory ? orderedProducts.map((product: any, index: any) => (
                         <div className={styles.row} key={index}>
                             <div className={styles.flex4}>{product.name}</div>
                             <div className={styles.flex4}>{product.cost}</div>
                             <div className={styles.flex4}>{formatDate(product.createDate)}</div>
                         </div>
-                    ))}
+                    )) : 
+                        <CircularProgress className={styles.spinner} />
+                    }
                 </div>
                 <Snackbar open={openAlert} autoHideDuration={1000} onClose={handleCloseAlert}>
                     <Alert onClose={handleCloseAlert} severity="success">
@@ -176,3 +193,4 @@ const UserConfig = () => {
 }
 
 export default UserConfig;
+

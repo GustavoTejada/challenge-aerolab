@@ -3,27 +3,40 @@ import styles from './Layout.module.css'
 import React, { useEffect, useState } from "react"
 import { Brightness6Rounded } from '@material-ui/icons'
 import SettingsIcon from '@material-ui/icons/Settings';
-import { Link } from '@material-ui/core'
+import {Link} from '@material-ui/core'
+
+interface User {
+    id: string;
+    name: string;
+    points: number;
+    redeemHistory?: any[];
+    createDate: string;
+}
+
 
 type LayoutProps = {
     title?: string,
+    userData?: User
 }
 
-const Layout: React.FunctionComponent<LayoutProps> = ({ children, title }) => {
+const Layout: React.FunctionComponent<LayoutProps> = ({ children, title, userData }) => {
     const [theme, setTheme] = useState("light");
 
-    const [user, setUser] = useState({
-        name: '',
-        points: 0
-    });
+    const [user, setUser] = useState(userData);
+
     useEffect(() => {
+        if (!localStorage.getItem("user") || localStorage.getItem("user") == "undefined") {
+            localStorage.setItem("user", JSON.stringify(userData));
+        } else {
+            setUser(JSON.parse(localStorage.getItem("user") || "{}"))
+        }
+
         document.documentElement.setAttribute(
             "data-theme",
             localStorage.getItem("theme") || '{}'
         );
-
         setTheme(localStorage.getItem("theme") || '{}');
-        setUser(JSON.parse(localStorage.getItem("user") || '{}'));
+
     }, []);
 
     const switchTheme = () => {
@@ -34,7 +47,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children, title }) => {
         }
     };
 
-    const saveTheme = (theme : any) => {
+    const saveTheme = (theme: any) => {
         setTheme(theme);
         localStorage.setItem("theme", theme);
         document.documentElement.setAttribute("data-theme", theme);
@@ -57,14 +70,17 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children, title }) => {
                     </button>
                 </div>
                 <div>
-                    <Link href={`/user/UserConfig`} key={'userConfig'} className={styles.linkUser}>
-                        <div className={styles.userData}>
-                            <SettingsIcon className={styles.userIcon} /> <div className={styles.userName}>{user.name}</div>
-                        </div>
-                    </Link>
-                        <div className={styles.userPoints}>
-                            <div className={styles.points}>{user.points}</div> <img src="/coin.svg" alt="points" />
-                        </div>
+                    {user != undefined ?
+                        <><Link href={`/user/UserConfig`} key={'userConfig'} className={styles.linkUser}>
+                            <div className={styles.userData}>
+                                <SettingsIcon className={styles.userIcon} /> <div className={styles.userName}>{user.name}</div>
+                            </div>
+                        </Link>
+                            <div className={styles.userPoints}>
+                                <div className={styles.points}>{user.points}</div> <img src="/coin.svg" alt="points" />
+                            </div> </>
+                        : <></>}
+
                 </div>
             </header>
 

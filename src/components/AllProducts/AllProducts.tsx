@@ -38,22 +38,27 @@ const orderBy = (products: any, value: any, direction: any) => {
     return products;
 }
 
+interface User {
+    id:            string;
+    name:          string;
+    points:        number;
+    createDate:    string;
+}
 
-const AllProducts = ({ products = [] }) => {
+const userInfo: User = {
+    id: '',
+    name: '',
+    points: 0,
+    createDate: ''
+}
+
+const AllProducts = ({ products = [], userData = userInfo }) => {
     const [value, setValue] = useState();
     const [direction, setDirection] = useState();
 
-    const [user, setUser] = useState({
-        name: '',
-        points: 0
-    });
+    const [user, setUser] = useState(userData);
 
     const [loading, setLoading] = useState(false);
-
-
-    useEffect(() => {
-        setUser(JSON.parse(localStorage.getItem("user") || '{}'));
-    }, []);
 
     const [open, setOpen] = useState({
         open: false,
@@ -101,13 +106,15 @@ const AllProducts = ({ products = [] }) => {
         }
         let response: any = await productService.redeemProduct(body);
         if (response.status == 200) {
-            getUserData();
+            removeUserData();
         }
     }
 
-    async function getUserData() {
-        let resUser: any = await userService.getUser();
-        localStorage.setItem("user", JSON.stringify(resUser.data));
+    async function removeUserData() {
+        localStorage.removeItem("user");
+        let res: any = await userService.getUser();
+        let user: any = res.data;
+        localStorage.setItem("user", JSON.stringify(user));
         handleClose();
         handleOpenAlert();
         setLoading(false);
