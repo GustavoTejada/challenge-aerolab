@@ -19,6 +19,11 @@ En esta vista se pueden destacar varios elementos:
 
 Este proyecto se encuentra disponible para ver y testear en Vercel en el siguiente link: 
 https://challenge-aerolab-j0l4r1hno-gustavotejada.vercel.app/
+
+Screenshots de la plataforma:
+![Captura web_31-5-2021_94339_localhost](https://user-images.githubusercontent.com/45311587/120195089-bfdc5100-c1f4-11eb-8fbc-eeaa3ece4143.jpeg)
+![Captura de pantalla 2021-05-31 094525](https://user-images.githubusercontent.com/45311587/120195282-f5813a00-c1f4-11eb-803d-6621c65563e5.jpg)
+
 ### Desarrollado por Gustavo Tejada
 
 ##
