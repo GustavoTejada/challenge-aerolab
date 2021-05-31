@@ -1,3 +1,17 @@
+## Coding Challenge Aerolab
+
+Este sistema se basa en el Coding Challenge de Aerolab, donde se requiere de un sistema de puntos que permita canjear puntos por productos.
+
+Se cuenta con 2 vistas principales, una que permite realizar la acción de canjeo y otra donde se puede agregar puntos (solo para testear la primera vista), ver el historial de productos canjeados.
+Las 2 vistas se encuentran contenidas con un Layout, que esta compuesta por un Header y un footer, entre otros elementos.
+
+En el Header vamos a encontrar, de izquierda a derecha:
+- El logo proporcionado en el ui kit de Aerolab, linkeado a la página principal.
+- Un pequeño botón, al lado del logo, para activar y desactivar el "Modo oscuro" en toda la plataforma.
+- El nombre del usuario, con un link a la vista de "configuración", donde se van a poder agregar puntos y ver el historial de productos.
+- Y la cantidad de puntos disponibles para canjear.
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
