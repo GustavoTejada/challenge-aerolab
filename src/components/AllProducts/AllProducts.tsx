@@ -124,7 +124,7 @@ const AllProducts = ({ products = [] }) => {
         <div className={styles.paper}>
             <h2 id="simple-modal-title">¿Estás seguro que deseas canjear {open.product.cost} <img className={styles.pointsModal} src="coin.svg" alt="points" /> por {open.product.name}?</h2>
             <p id="simple-modal-description">
-                Te quedan {user.points - open.product.cost} <img className={styles.pointsModal} src="coin.svg" alt="points" />
+                Te quedarán {user.points - open.product.cost} <img className={styles.pointsModal} src="coin.svg" alt="points" />
             </p>
             {loading == true ?
                 <div className={styles.modal}>
@@ -178,7 +178,7 @@ const AllProducts = ({ products = [] }) => {
                                         <div className={styles.points}>
                                             <span>{product.cost}</span> <img src="coin.svg" alt="points" />
                                         </div>
-                                        {user.points >= product.cost ? <button className={styles.buttonRedeem} onClick={() => { handleOpen(product) }}>Reclamar</button> : <button className={styles.errorButton}>Puntos insuficientes</button>}
+                                        {user.points >= product.cost ? <button className={styles.buttonRedeem} onClick={() => { handleOpen(product) }}>Canjear</button> : <button className={styles.errorButton}>Puntos insuficientes</button>}
 
                                     </div>
                                     {user.points >= product.cost && <LocalMallIcon className={styles.iconMallOverlay} />}

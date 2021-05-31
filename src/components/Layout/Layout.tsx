@@ -2,8 +2,7 @@ import Head from 'next/head'
 import styles from './Layout.module.css'
 import React, { useEffect, useState } from "react"
 import { Brightness6Rounded } from '@material-ui/icons'
-import userService from '../../services/userService'
-import PersonIcon from '@material-ui/icons/Person';
+import SettingsIcon from '@material-ui/icons/Settings';
 import { Link } from '@material-ui/core'
 
 type LayoutProps = {
@@ -58,9 +57,9 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children, title }) => {
                     </button>
                 </div>
                 <div>
-                    <Link href={`/user/UserConfig`} key={'userConfig'}>
+                    <Link href={`/user/UserConfig`} key={'userConfig'} className={styles.linkUser}>
                         <div className={styles.userData}>
-                            <PersonIcon className={styles.userIcon} /> <div className={styles.userName}>{user.name}</div>
+                            <SettingsIcon className={styles.userIcon} /> <div className={styles.userName}>{user.name}</div>
                         </div>
                     </Link>
                         <div className={styles.userPoints}>

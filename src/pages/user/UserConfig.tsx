@@ -30,22 +30,22 @@ const orderBy = (products: any, value: any, direction: string) => {
 };
 
 const SortArrow = (direction : any) => {
-    if (!direction) {
+    if (direction.direction === "none") {
         return <></>;
-    }
-
-    if (direction === "desc") {
-        return (
-            <div className={styles.heading_arrow}>
-                <KeyboardArrowDownRounded color="inherit" />
-            </div>
-        );
     } else {
-        return (
-            <div className={styles.heading_arrow}>
-                <KeyboardArrowUpRounded color="inherit" />
-            </div>
-        );
+        if (direction.direction === "asc") {
+            return (
+                <div className={styles.heading_arrow}>
+                    <KeyboardArrowDownRounded color="inherit" />
+                </div>
+            );
+        } else {
+            return (
+                <div className={styles.heading_arrow}>
+                    <KeyboardArrowUpRounded color="inherit" />
+                </div>
+            );
+        }
     }
 };
 
@@ -62,19 +62,20 @@ const UserConfig = () => {
         setUser(JSON.parse(localStorage.getItem("user") || '{}'));
     }, []);
 
-    const [direction, setDirection] = useState('');
+    const [direction, setDirection] = useState('none');
     const [value, setValue] = useState();
 
     const orderedProducts = orderBy(user.redeemHistory, value, direction);
 
     const switchDirection = () => {
-        if (!direction) {
-            setDirection("desc");
-        } else if (direction === "desc") {
+        if (direction === "none") {
             setDirection("asc");
+        } else if (direction === "asc") {
+            setDirection("desc");
         } else {
-            setDirection('');
+            setDirection("none");
         }
+        console.log(direction);
     };
 
     const setValueAndDirection = (value : any) => {
@@ -120,20 +121,21 @@ const UserConfig = () => {
     return (
         <Layout>
             <Container>
-                <div className={styles.ordered}>
-                    <span>Agregar puntos:</span>
+                <div className={styles.addPointsContainer}>
+                    <div>Sumá puntos</div>
+                    <div className={styles.description}>Seleccioná la cantidad de puntos que queres agregar para seguir canjeando</div>
                     {
                         loading == true ?
                             <CircularProgress className={styles.spinner} /> :
-                            <>
+                            <div className={styles.containerPointsButtons}>
                                 <button className={styles.buttonPoints} onClick={() => addPoints(1000)}>1000</button>
                                 <button className={styles.buttonPoints} onClick={() => addPoints(5000)}>5000</button>
                                 <button className={styles.buttonPoints} onClick={() => addPoints(7500)}>7500</button>
-                            </>
+                            </div>
                     }
                 </div>
-                <hr />
                 <div>Historial de productos canjeados:</div>
+                <hr />
                 <div className={styles.heading}>
                     <button className={styles.heading_name}
                         onClick={() => setValueAndDirection("name")}>
@@ -143,7 +145,7 @@ const UserConfig = () => {
                     </button>
                     <button className={styles.heading_cost}
                         onClick={() => setValueAndDirection("cost")}>
-                        <div>Precio / Puntos</div>
+                        <div>Puntos</div>
                         {value === 'cost' && <SortArrow direction={direction} />}
 
                     </button>
@@ -155,8 +157,8 @@ const UserConfig = () => {
                     </button>
                 </div>
                 <div>
-                    {orderedProducts.map((product: any) => (
-                        <div className={styles.row}>
+                    {orderedProducts.map((product: any, index: any) => (
+                        <div className={styles.row} key={index}>
                             <div className={styles.flex4}>{product.name}</div>
                             <div className={styles.flex4}>{product.cost}</div>
                             <div className={styles.flex4}>{formatDate(product.createDate)}</div>

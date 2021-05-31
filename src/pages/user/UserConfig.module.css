@@ -6,12 +6,16 @@
 .heading_name, 
 .heading_cost, .heading_date {
     flex: 4;
-    color: var(--text-color-secondary);
+    color: var(--primary-color);
     font-weight: 500;
 
     display: flex;
-    justify-content:center;
-    text-align: center;
+    justify-content: left;
+    text-align: left;
+
+    text-decoration: underline;
+
+    transition: all 0.3s;
 }
 
 .heading button {
@@ -21,20 +25,16 @@
     cursor: pointer;
 }
 
-.heading button:hover {
-    background-color: var(--background-color-light);
-    border-radius: 3px;
-}
-
-.heading_name {
-    justify-content: center;
+.heading_name:hover, 
+.heading_cost:hover, .heading_date:hover {
+    transform: translate3d(0px, -1px, 0px);
 }
 
 .row {
     display: flex;
     padding: 20px;
     
-    text-align: center;
+    text-align: left;
 
     background-color: var(--background-color-light);
     border-radius: 8px;
@@ -42,16 +42,11 @@
 
     box-shadow: var(--box-shadow);
     font-weight: 500;
-
-    transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
 }
-
 
 .flex4 {
     flex: 4;
 }
-
-
 
 .points {
     margin: 20px 0px;
@@ -59,12 +54,13 @@
 
 .buttonPoints{
     border-radius: 30px;
-    border: none;
     padding: 5px 10px;
     transition: all 0.2s ease-in-out;
     margin: 0px 5px;
     color: var(--primary-color);
     background-color: #fff;
+    border: solid 1px var(--primary-color);
+    width: 25%;
 }
 
 .buttonPoints:hover {
@@ -79,4 +75,25 @@
     margin-left: 10px;
     width: 20px !important;
     height: 20px !important;
+}
+
+.addPointsContainer {
+    width: 100%;
+    padding: 20px 20px;
+    margin: 20px 0px 40px 0px;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+    background-color: var(--background-color-light);
+}
+
+.description {
+    color: var(--text-color-secondary);
+    margin: 10px 0px 20px 0px;
+}
+
+.containerPointsButtons {
+    display: flex;
+    justify-content: center;
+    background-color: var(--background-color-light);
 }
