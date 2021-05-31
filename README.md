@@ -17,8 +17,9 @@ En esta vista se pueden destacar varios elementos:
 - Se pueden ordenar los productos por "Menor precio" y "Mayor precio".
 - Si los puntos son suficientes para canjear el producto, se va a permitir. En caso contrarios, se le mostrará al usuario un cartel donde se le comunica que tiene puntos insuficeintes y aparte se le informa la cantidad de puntos faltantes para realizar la acción.
 
+
 Este proyecto se encuentra disponible para ver y testear en Vercel en el siguiente link: 
-https://challenge-aerolab-j0l4r1hno-gustavotejada.vercel.app/
+https://challenge-aerolab-gustavotejada.vercel.app/
 
 Screenshots de la plataforma:
 ![Captura web_31-5-2021_94339_localhost](https://user-images.githubusercontent.com/45311587/120195089-bfdc5100-c1f4-11eb-8fbc-eeaa3ece4143.jpeg)
