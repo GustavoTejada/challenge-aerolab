@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import AllProducts from '../components/AllProducts/AllProducts';
+import AllProducts from './allProducts/AllProducts';
 import Layout from '../components/Layout/Layout'
 import productService from '../services/productService';
 import userService from '../services/userService';

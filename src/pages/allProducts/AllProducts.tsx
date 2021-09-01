@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import productService from '../../services/productService';
 import userService from '../../services/userService';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Hero from '../../components/hero/Hero';
 
 export interface Product {
     _id:      string;
@@ -147,13 +148,8 @@ const AllProducts = ({ products = [], userData = userInfo }) => {
 
 
     return (
-        <div className={styles.centered}>
-            <div className={styles.contentBanner}>
-                <img className={styles.banner} src="header-x1.png" />
-                <Container className={styles.overlayBanner}>
-                    <h2 className={styles.textBanner}>Electronics</h2>
-                </Container>
-            </div>
+        <div>
+            <Hero />
             <Container>
                 <div className={styles.counts}>Se encontraron {products.length} productos</div>
                 <div className={styles.ordered}>
