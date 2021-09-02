@@ -123,9 +123,12 @@ const AllProducts = ({ products = [], userData = userInfo }) => {
 
     const orderedProducts = orderBy(products, value, direction);
 
-    const setValueAndDirection = (value: any, direction: any) => {
-        setDirection(direction);
-        setValue(value);
+    const setValueAndDirection = (newValue: any, newDirection: any) => {
+        if (direction === newDirection) {
+            newDirection = 'none';
+        }
+        setDirection(newDirection);
+        setValue(newValue);
     };
 
     let body = (
@@ -154,8 +157,8 @@ const AllProducts = ({ products = [], userData = userInfo }) => {
                 <div className={styles.counts}>Se encontraron {products.length} productos</div>
                 <div className={styles.ordered}>
                     <span>Ordenar por:</span>
-                    <button className={direction !== 'asc' ? styles.buttonOrder : styles.buttonActive} onClick={() => setValueAndDirection("cost", "asc")}>Menor precio</button>
-                    <button className={direction !== 'desc' ? styles.buttonOrder : styles.buttonActive} onClick={() => setValueAndDirection("cost", "desc")}>Mayor precio</button>
+                    <button className={(direction !== 'asc') || (direction === 'none') ? styles.buttonOrder : styles.buttonActive} onClick={() => setValueAndDirection("cost", "asc")}>Menor precio</button>
+                    <button className={(direction !== 'desc') || (direction === 'none') ? styles.buttonOrder : styles.buttonActive} onClick={() => setValueAndDirection("cost", "desc")}>Mayor precio</button>
                 </div>
 
                 <Grid container spacing={3} justify="center">
