@@ -1,17 +1,17 @@
 # Coding Challenge Aerolab
 
-Este sistema se basa en el Coding Challenge de Aerolab, donde se requiere de un sistema de puntos que permita canjear puntos por productos.
+Este sistema se basa en el Coding Challenge de Aerolab, donde se requiere de un sistema de recompensas que permite canjear productos por puntos acumulados.
 
-Se cuenta con 2 vistas principales, una que permite realizar la acción de canjeo y otra donde se puede agregar puntos (solo para testear la primera vista), ver el historial de productos canjeados.
-Las 2 vistas se encuentran contenidas con un Layout, que esta compuesta por un Header y un footer, entre otros elementos.
+Se cuenta con 2 vistas principales, una vista donde se encuentran todos los productos y desde esta se pueden canjear, y la segunda donde se puede agregar puntos (solo para testear la primera vista), ver el historial de productos canjeados.
+Las 2 vistas se encuentran contenidas con un Layout, que esta compuesto por un Header y un Footer, entre otros elementos.
 
 En el Header vamos a encontrar, de izquierda a derecha:
 - El logo proporcionado en el ui kit de Aerolab, linkeado a la página principal.
-- Un pequeño botón, al lado del logo, para activar y desactivar el "Modo oscuro" en toda la plataforma.
-- El nombre del usuario (obtenido por api), con un link a la vista de "configuración", donde se van a poder agregar puntos y ver el historial de productos.
-- Y la cantidad de puntos disponibles para canjear (obtenido por api).
+- Un pequeño botón, al costado del logo, para activar y desactivar el "Modo oscuro" en toda la plataforma.
+- El nombre del usuario (obtenido por API), con un link a la vista de "configuración", donde se van a poder agregar puntos y ver el historial de productos.
+- Y la cantidad de puntos disponibles para canjear (obtenido por API).
 
-En la vista principal, se cuenta con un banner de la sección donde se encontraría el usuario, junto a todos los productos disponibles para canjear (obtenido por api).
+En la vista principal, se cuenta con un banner de la sección donde se encontraría el usuario, junto a todos los productos disponibles para canjear (obtenidos por API).
 En esta vista se pueden destacar varios elementos:
 - Se muestra la cantidad de productos encontrados.
 - Se pueden ordenar los productos por "Menor precio" y "Mayor precio".
