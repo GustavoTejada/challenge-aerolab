@@ -73,7 +73,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children, title, userDat
                     {user != undefined ?
                         <><Link href={`/user/UserConfig`} key={'userConfig'} className={styles.linkUser}>
                             <div className={styles.userData}>
-                                <SettingsIcon className={styles.userIcon} /> <div className={styles.userName}>{user.name}</div>
+                                <div className={styles.userName}>{user.name}</div>
                             </div>
                         </Link>
                             <div className={styles.userPoints}>
