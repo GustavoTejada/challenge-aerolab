@@ -17,13 +17,16 @@ En esta vista se pueden destacar varios elementos:
 - Se pueden ordenar los productos por "Menor precio" y "Mayor precio".
 - Si los puntos son suficientes para canjear el producto, se va a permitir. En caso contrarios, se le mostrará al usuario un cartel donde se le comunica que tiene puntos insuficeintes y aparte se le informa la cantidad de puntos faltantes para realizar la acción.
 
+![Captura web_31-5-2021_94339_localhost](https://user-images.githubusercontent.com/45311587/120195089-bfdc5100-c1f4-11eb-8fbc-eeaa3ece4143.jpeg)
+
+Después contamos con una segunda vista que se accede haciendo click sobre el nombre del usuario, y en ella podemos encontrar 2 secciones importantes:
+La primera sección nos va a servir para sumar puntos, mas que nada para testear la vista principal.
+Y en la segunda sección vamos a poder ver el historial de productos canjeados. Dicho listado se puede ordenar tanto de manera ascendente como descendente por nombre del producto, puntos y fecha.
+
+![Captura de pantalla 2021-05-31 094525](https://user-images.githubusercontent.com/45311587/120195282-f5813a00-c1f4-11eb-803d-6621c65563e5.jpg)
 
 Este proyecto se encuentra disponible para ver y testear en Vercel en el siguiente link: 
 https://challenge-aerolab-gustavotejada.vercel.app/
-
-Screenshots de la plataforma:
-![Captura web_31-5-2021_94339_localhost](https://user-images.githubusercontent.com/45311587/120195089-bfdc5100-c1f4-11eb-8fbc-eeaa3ece4143.jpeg)
-![Captura de pantalla 2021-05-31 094525](https://user-images.githubusercontent.com/45311587/120195282-f5813a00-c1f4-11eb-803d-6621c65563e5.jpg)
 
 ### Desarrollado por Gustavo Tejada
 
